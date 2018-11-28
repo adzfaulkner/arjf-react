@@ -1,0 +1,17 @@
+export const MODAL_HIDE = 'hide_modal';
+export const MODAL_SHOW = 'show_modal';
+export const FORM_CONTACT_SUBMIT = 'form_contact_submit';
+export const FORM_CONTACT_SUBMIT_ERROR = 'form_contact_submit_error';
+export const FORM_CONTACT_SUBMIT_SUCCESS = 'form_contact_submit_success';
+export const BLOG_POSTS_FETCH_PENDING = 'blog_posts_fetch_pending';
+export const BLOG_POSTS_FETCH_SUCCESS = 'blog_posts_fetch_success';
+export const BLOG_POSTS_FETCH_FAILED = 'blog_posts_fetch_failed';
+export const BLOG_POST_FETCH_PENDING = 'blog_post_fetch_pending';
+export const BLOG_POST_FETCH_SUCCESS = 'blog_post_fetch_success';
+export const BLOG_POST_FETCH_FAILED = 'blog_post_fetch_failed';
+export const BLOG_CATEGORIES_FETCH_PENDING = 'blog_categories_fetch_pending';
+export const BLOG_CATEGORIES_FETCH_SUCCESS = 'blog_categories_fetch_success';
+export const BLOG_CATEGORIES_FETCH_FAILED = 'blog_categories_fetch_failed';
+export const BLOG_ARCHIVES_FETCH_PENDING = 'archives_categories_fetch_pending';
+export const BLOG_ARCHIVES_FETCH_SUCCESS = 'archives_categories_fetch_success';
+export const BLOG_ARCHIVES_FETCH_FAILED = 'archives_categories_fetch_failed';

@@ -1,0 +1,41 @@
+{
+  "name": "arjf",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://www.arjf.co.uk",
+  "proxy": {
+    "/wp/*": {
+      "target": "http://localhost"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "email-validator": "^2.0.4",
+    "emailjs-com": "^2.2.4",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "redux": "^4.0.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.1",
+    "redux-form": "^7.4.2",
+    "react-loader": "^2.4.5",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.6.0",
+    "node-sass-chokidar": "^1.3.0"
+  }
+}
