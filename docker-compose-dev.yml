@@ -2,7 +2,9 @@ version: '3.3'
 
 services:
   web:
-    build: ./web
+    build:
+      context: ./web
+      dockerfile: Dockerfile-dev
     env_file: ./web/.env
     ports:
       - '80:80'
