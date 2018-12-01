@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import CategoryId from './CategoryId';
-import { fetchCategories } from '../../requests/categories';
+import { getCategories } from '../../repositories/categories';
 
 export default function(posts, filters) {
   let { category = null } = filters;
@@ -9,7 +9,7 @@ export default function(posts, filters) {
     return null;
   }
 
-  const allCategories = fetchCategories();
+  const allCategories = getCategories();
 
   let categoryObj = _.find(allCategories, cat => cat.slug === category );
 

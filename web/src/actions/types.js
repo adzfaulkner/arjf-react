@@ -15,3 +15,6 @@ export const BLOG_CATEGORIES_FETCH_FAILED = 'blog_categories_fetch_failed';
 export const BLOG_ARCHIVES_FETCH_PENDING = 'archives_categories_fetch_pending';
 export const BLOG_ARCHIVES_FETCH_SUCCESS = 'archives_categories_fetch_success';
 export const BLOG_ARCHIVES_FETCH_FAILED = 'archives_categories_fetch_failed';
+export const EXAMPLES_FETCH_PENDING = 'examples_fetch_pending';
+export const EXAMPLES_FETCH_SUCCESS = 'examples_fetch_success';
+export const EXAMPLES_FETCH_FAILED = 'examples_fetch_failed';

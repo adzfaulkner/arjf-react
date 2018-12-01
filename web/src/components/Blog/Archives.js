@@ -6,6 +6,13 @@ import * as actions from '../../actions/index';
 import PropTypes from 'prop-types';
 
 class Categories extends React.Component {
+  onClick = date => {
+    let { fetchPosts } = this.props;
+    fetchPosts({
+      date
+    });
+  };
+
   renderListItem = date => {
     return (
       <li key={`blog-archive-${date.format('MM-YYYY')}`}>

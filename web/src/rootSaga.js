@@ -3,6 +3,7 @@ import { fetchPostsSagaWatcher } from './sagas/blogSaga';
 import { fetchPostSagaWatcher } from './sagas/postSaga';
 import { fetchCategoriesSagaWatcher } from './sagas/categoriesSaga';
 import { fetchArchivesSagaWatcher } from './sagas/archivesSaga';
+import { fetchExamplesSagaWatcher } from './sagas/examplesSaga';
 
 
 export default function* rootSaga() {
@@ -10,6 +11,7 @@ export default function* rootSaga() {
     fetchPostsSagaWatcher(),
     fetchPostSagaWatcher(),
     fetchCategoriesSagaWatcher(),
-    fetchArchivesSagaWatcher()
+    fetchArchivesSagaWatcher(),
+    fetchExamplesSagaWatcher(),
   ]);
 }

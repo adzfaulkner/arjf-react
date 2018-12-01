@@ -7,7 +7,7 @@ import {
   BLOG_POST_FETCH_PENDING,
   BLOG_POST_FETCH_SUCCESS,
   BLOG_CATEGORIES_FETCH_SUCCESS,
-  BLOG_CATEGORIES_FETCH_PENDING
+  BLOG_CATEGORIES_FETCH_PENDING, EXAMPLES_FETCH_PENDING, EXAMPLES_FETCH_SUCCESS
 } from './types'
 
 export const modalShow = ({url, img, description}) => dispatch => {
@@ -53,4 +53,12 @@ export const fetchedCategories = categories => dispatch => {
 
 export const fetchArchives = posts => async dispatch => {
   return dispatch({ type: BLOG_POST_FETCH_PENDING, posts  });
+};
+
+export const fetchExamples = () => dispatch => {
+  return dispatch({ type: EXAMPLES_FETCH_PENDING });
+};
+
+export const fetchedExamples = examples => dispatch => {
+  return dispatch({ type: EXAMPLES_FETCH_SUCCESS, examples });
 };

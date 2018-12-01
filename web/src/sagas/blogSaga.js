@@ -4,12 +4,12 @@ import {
   BLOG_POSTS_FETCH_PENDING,
   BLOG_POSTS_FETCH_SUCCESS
 } from '../actions/types';
-import { fetchPosts } from '../requests/posts';
+import { getPosts } from '../repositories/posts';
 import Handle from './blogFilterHandlers/Handle';
 
 function* fetchPostsSaga(action) {
   try {
-    let posts = fetchPosts();
+    let posts = getPosts();
 
     yield put({
       type: BLOG_POSTS_FETCH_SUCCESS,

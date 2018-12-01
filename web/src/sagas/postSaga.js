@@ -1,12 +1,10 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import { BLOG_ARCHIVES_FETCH_PENDING, BLOG_POST_FETCH_PENDING, BLOG_POST_FETCH_SUCCESS } from '../actions/types';
-import { fetchPost } from '../requests/post';
-import { fetchPosts } from '../requests/posts';
+import { getPosts, getPostUsingSlug } from '../repositories/posts';
 
 function* fetchPostSaga(action) {
   try {
-    let posts = fetchPosts();
-    let post = fetchPost(posts, action.slug);
+    let post = getPostUsingSlug(action.slug);
 
     yield put({
       type: BLOG_POST_FETCH_SUCCESS,
@@ -15,7 +13,7 @@ function* fetchPostSaga(action) {
 
     yield put({
       type: BLOG_ARCHIVES_FETCH_PENDING,
-      posts: posts
+      posts: getPosts()
     });
   } catch (e) {
     console.log(e);

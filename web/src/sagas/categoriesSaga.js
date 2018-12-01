@@ -3,11 +3,11 @@ import {
   BLOG_CATEGORIES_FETCH_PENDING,
   BLOG_CATEGORIES_FETCH_SUCCESS
 } from '../actions/types';
-import { fetchCategories } from '../requests/categories';
+import { getCategories } from '../repositories/categories';
 
 function* fetchCategoriesSaga(action) {
   try {
-    let categories = fetchCategories();
+    let categories = getCategories();
     yield put({
       type: BLOG_CATEGORIES_FETCH_SUCCESS,
       categories

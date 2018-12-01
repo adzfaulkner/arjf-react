@@ -1,10 +1,10 @@
 import React from 'react';
-import examples from '../json/examples.json';
 import Modal from './Modal';
 import * as actions from '../actions';
 import connect from 'react-redux/es/connect/connect';
 import { getImage } from '../utils/image';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ExamplesContainer = styled.div`
   margin-top:15px;
@@ -12,7 +12,8 @@ const ExamplesContainer = styled.div`
 
 class Examples extends React.Component {
   componentDidMount(){
-    document.title = "ARJF Portfolio"
+    document.title = "ARJF Portfolio";
+    this.props.fetchExamples();
   }
 
   handleOnClick = example => {
@@ -33,6 +34,8 @@ class Examples extends React.Component {
   }
 
   renderExamples() {
+    const { examples } = this.props;
+
     return (
       <ExamplesContainer className="container">
         {examples.map(example => this.renderExample(example))}
@@ -56,9 +59,18 @@ class Examples extends React.Component {
   }
 }
 
+Examples.propTypes = {
+  examples: PropTypes.array.isRequired,
+  fetchExamples: PropTypes.func.isRequired,
+};
 
+function mapStateToProps({ examples: { examples }, }) {
+  return {
+    examples
+  };
+}
 
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(Examples);

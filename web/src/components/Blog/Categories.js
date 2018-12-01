@@ -6,6 +6,13 @@ import * as actions from '../../actions/index';
 import PropTypes from 'prop-types';
 
 class Categories extends React.Component {
+  onClick = id => {
+    let { fetchPosts } = this.props;
+    fetchPosts({
+      categoryId: id
+    });
+  };
+
   componentDidMount() {
     let { fetchCategories } = this.props;
     fetchCategories();
@@ -20,7 +27,7 @@ class Categories extends React.Component {
 
     return (
       <li key={`blog-category-${id}`} className={`cat-item cat-item-${id}`}>
-        <Link to={`/blog/category/${slug}`}>{name}</Link> ({count})
+        <Link to={`/blog/category/${slug}`} onClick={() => this.onClick(id)}>{name}</Link> ({count})
       </li>
     );
   };

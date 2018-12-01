@@ -5,6 +5,7 @@ import blogReducer from './blogReducer';
 import postReducer from './postReducer';
 import categoriesReducer from './categoriesReducer';
 import archivesReducer from './archivesReducer';
+import examplesReducer from './examplesReducer';
 import { reducer as reduxForm } from 'redux-form';
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   post: postReducer,
   categories: categoriesReducer,
   archives: archivesReducer,
+  examples: examplesReducer,
   form: reduxForm
 });
