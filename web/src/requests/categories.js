@@ -1,4 +1,5 @@
-export async function fetchCategories() {
-  let response = await fetch('/wp/wp-json/wp/v2/categories');
-  return response.json();
+import categories from '../json/categories.json';
+
+export function fetchCategories() {
+  return categories;
 }

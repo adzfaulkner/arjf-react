@@ -1,5 +1,7 @@
-export async function fetchPosts() {
-  const url = '/wp/wp-json/wp/v2/posts';
-  let response = await fetch(url);
-  return response.json();
+import posts from '../json/posts.json';
+import _ from 'lodash'
+import PostFactory from '../models/Post'
+
+export function fetchPosts() {
+  return _.map(posts, post => PostFactory(post));
 }

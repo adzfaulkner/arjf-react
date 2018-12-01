@@ -5,26 +5,5 @@ services:
     build: ./web
     env_file: ./web/.env
     ports:
+      - '443:443'
       - '80:80'
-    links:
-      - php
-    restart: always
-
-  php:
-    build: ./php
-    env_file: ./php/.env
-    volumes:
-      - ./php/wp/src:/app/wp
-    links:
-      - mysql
-    expose:
-      - 9000
-
-  mysql:
-    build: ./mysql
-    env_file: ./mysql/.env
-    ports:
-      - '3306:3306'
-    volumes:
-      - ./mysql/db-data:/var/lib/mysql
-    restart: always

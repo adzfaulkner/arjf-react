@@ -2,9 +2,8 @@ import Category from './Category';
 import CategoryId from './CategoryId';
 import YearAndDate from './YearAndDate';
 import DateO from './DateO';
-import { call } from 'redux-saga/effects';
 
-export default function* (posts, filters) {
+export default function (posts, filters) {
   if (!filters) {
     return posts;
   }
@@ -12,7 +11,7 @@ export default function* (posts, filters) {
   const handlers = [Category, CategoryId, DateO, YearAndDate];
 
   for (let handler of handlers) {
-    let res = yield call(handler, posts, filters);
+    let res = handler(posts, filters);
 
     if (res !== null) {
       return res;

@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
+import { takeLatest, put } from 'redux-saga/effects';
 import {
   BLOG_CATEGORIES_FETCH_PENDING,
   BLOG_CATEGORIES_FETCH_SUCCESS
@@ -7,7 +7,7 @@ import { fetchCategories } from '../requests/categories';
 
 function* fetchCategoriesSaga(action) {
   try {
-    let categories = yield call(fetchCategories);
+    let categories = fetchCategories();
     yield put({
       type: BLOG_CATEGORIES_FETCH_SUCCESS,
       categories

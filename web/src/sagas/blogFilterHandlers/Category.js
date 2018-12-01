@@ -1,18 +1,18 @@
 import _ from 'lodash';
 import CategoryId from './CategoryId';
 import { fetchCategories } from '../../requests/categories';
-import { call } from 'redux-saga/effects';
 
-export default function*(posts, filters) {
+export default function(posts, filters) {
   let { category = null } = filters;
 
   if (category === null) {
     return null;
   }
 
-  const allCategories = yield call(fetchCategories);
+  const allCategories = fetchCategories();
 
   let categoryObj = _.find(allCategories, cat => cat.slug === category );
+
   if(!categoryObj) {
     return null;
   }

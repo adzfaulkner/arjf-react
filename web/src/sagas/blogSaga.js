@@ -1,23 +1,19 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 import {
   BLOG_ARCHIVES_FETCH_PENDING,
   BLOG_POSTS_FETCH_PENDING,
   BLOG_POSTS_FETCH_SUCCESS
-} from '../actions/types'
-import _ from 'lodash';
-import PostFactory from '../models/Post';
+} from '../actions/types';
 import { fetchPosts } from '../requests/posts';
 import Handle from './blogFilterHandlers/Handle';
 
 function* fetchPostsSaga(action) {
   try {
-    let postsResponse = yield call(fetchPosts);
-
-    let posts = _.map(postsResponse, post => PostFactory(post));
+    let posts = fetchPosts();
 
     yield put({
       type: BLOG_POSTS_FETCH_SUCCESS,
-      posts: yield call(Handle, posts, action.filters)
+      posts: Handle(posts, action.filters)
     });
 
     yield put({

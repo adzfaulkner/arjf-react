@@ -10,8 +10,7 @@ import PropTypes from 'prop-types';
 const renderHTML = rawHTML => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
 class Blog extends React.Component {
-  constructor (props)
-  {
+  constructor (props) {
     super(props);
     this.state = {
       loading: true
@@ -20,7 +19,8 @@ class Blog extends React.Component {
 
   componentDidMount() {
     document.title = "ARJF Blog";
-    let { params } = this.props;
+
+    let { match: { params } } = this.props;
     this.renderPosts(params);
   }
 

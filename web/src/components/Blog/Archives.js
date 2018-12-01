@@ -6,17 +6,10 @@ import * as actions from '../../actions/index';
 import PropTypes from 'prop-types';
 
 class Categories extends React.Component {
-  onClick = date => {
-    let { fetchPosts } = this.props;
-    fetchPosts({
-      date
-    });
-  };
-
   renderListItem = date => {
     return (
       <li key={`blog-archive-${date.format('MM-YYYY')}`}>
-        <Link to={`/blog/${date.format('YYYY/MM')}`} onClick={() => this.onClick(date)}>{date.format('MMMM YYYY')}</Link>
+        <Link to={`/blog/archive/${date.format('YYYY/MM')}`} onClick={() => this.onClick(date)}>{date.format('MMMM YYYY')}</Link>
       </li>
     );
   };
