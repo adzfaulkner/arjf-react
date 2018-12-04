@@ -10,12 +10,10 @@ import {
   BLOG_CATEGORIES_FETCH_PENDING, EXAMPLES_FETCH_PENDING, EXAMPLES_FETCH_SUCCESS
 } from './types'
 
-export const modalShow = ({url, img, description}) => dispatch => {
+export const modalShow = render => dispatch => {
   return dispatch({
     type: MODAL_SHOW,
-    url,
-    img,
-    description
+    render
   });
 };
 

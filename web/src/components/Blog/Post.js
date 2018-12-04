@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
 import * as actions from '../../actions/index';
 import Sidebar from './Sidebar';
-import Loading from './Loading';
+import Loading from '../Loading';
 
 const renderHTML = rawHTML => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 

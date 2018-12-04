@@ -2,16 +2,24 @@ import React from 'react';
 import ContactForm from './contactform/ContactForm';
 import connect from 'react-redux/es/connect/connect';
 import * as actions from '../actions';
+import ExamplesModal from './ExamplesModal';
+import ContactFormModal from './contactform/ContactFormModal';
 
 class Contact extends React.Component {
-  state = { sent: false};
+  state = {
+    sending: false,
+    sent: false
+  };
 
   componentDidMount(){
     document.title = "Contact ARJF"
   }
 
   render() {
-    if (this.state.sent === true) {
+    const  { modalShow, modalHide } = this.props;
+    const {sent, sending} = this.state;
+
+    if (sent === true) {
       window.scrollTo(0, 0);
       return (
         <div className="alert alert-dismissable alert-success">
@@ -28,7 +36,7 @@ class Contact extends React.Component {
             <p>I only accept communications via email for the time being. So please, by all means complete the following
               form and I will endeavour to respond ASAP.</p>
           </div>
-          <ContactForm onSent={() => this.setState({ sent: true })} />
+          <ContactForm onSend={() => modalShow(() => <ContactFormModal/>)} onSent={() => {modalHide(); this.setState({ sending: false, sent: true })}} />
         </div>
       </div>
     );

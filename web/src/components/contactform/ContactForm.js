@@ -16,9 +16,10 @@ class ContactForm extends React.Component {
   };
 
   handleSubmit = async values => {
-    let { onSent } = this.props;
+    let { onSend, onSent } = this.props;
     let { email, subject, message } = values;
     init(process.env.REACT_APP_EMAIL_JS_USER_ID);
+    onSend();
     await send(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, {"reply_to":email,"subject":subject,"text":message});
     onSent();
   }

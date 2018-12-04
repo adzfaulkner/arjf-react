@@ -9,13 +9,11 @@ export default function(state = initialState, action) {
     case MODAL_HIDE:
       return initialState
     case MODAL_SHOW:
-      let { url, img, description} = action;
+      let { render } = action;
       return {
         ...state,
         show: true,
-        url,
-        img,
-        description
+        render
       };
     default:
       return state;

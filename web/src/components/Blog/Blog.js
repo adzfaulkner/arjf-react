@@ -4,7 +4,7 @@ import connect from 'react-redux/es/connect/connect';
 import _ from 'lodash';
 import { Link, withRouter } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import Loading from './Loading';
+import Loading from '../Loading';
 import PropTypes from 'prop-types';
 
 const renderHTML = rawHTML => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });

@@ -1,10 +1,10 @@
 import React from 'react';
-import Modal from './Modal';
 import * as actions from '../actions';
 import connect from 'react-redux/es/connect/connect';
 import { getImage } from '../utils/image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import ExamplesModal from './ExamplesModal';
 
 const ExamplesContainer = styled.div`
   margin-top:15px;
@@ -16,9 +16,11 @@ class Examples extends React.Component {
     this.props.fetchExamples();
   }
 
-  handleOnClick = example => {
+  handleOnClick = ({url, description, img }) => {
     let { modalShow } = this.props;
-    modalShow(example);
+    modalShow(
+      modalHide => <ExamplesModal url={url} description={description} img={img} modalHide={modalHide}/>
+    );
   };
 
   renderExample = example => {
@@ -46,7 +48,6 @@ class Examples extends React.Component {
   render() {
       return (
           <div>
-            <Modal />
             <div className="jumbotron">
               <h1>Examples</h1>
             </div>
