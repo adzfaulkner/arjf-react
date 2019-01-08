@@ -17,5 +17,6 @@ RUN chmod 0400 /etc/ssl/www.arjf.co.uk.crt /etc/ssl/arjf.key && \
     mv  /etc/nginx/conf.d/default-prod.conf /etc/nginx/conf.d/default.conf && \
     rm /etc/nginx/conf.d/default-dev.conf
 COPY --from=builder /app/build /app
+COPY src/repositories/json/rss.xml /app/static
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

@@ -8,6 +8,10 @@ import Loading from '../Loading';
 const renderHTML = rawHTML => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
 class Post extends React.Component {
+  componentWillUpdate = () => {
+    window.scrollTo(0, 0);
+  }
+
   componentDidMount() {
     let { fetchPost, match: { params: { slug } } } = this.props;
     fetchPost(slug);

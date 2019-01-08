@@ -56,6 +56,7 @@ class Blog extends React.Component {
       <div id="main">
         <Loading loading={loading} />
         {this.renderSamples(posts)}
+        <a class="rss" href="/static/rss.xml"></a>
         {loading === false && <Sidebar archives={archives} />}
       </div>
     );
