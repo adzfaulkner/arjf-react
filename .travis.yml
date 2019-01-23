@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t adzfaulkner/arjf-react -f ./web/Dockerfile-test .
+
+script:
+  - docker run adzfaulkner/arjf-react npm run test -- --coverage

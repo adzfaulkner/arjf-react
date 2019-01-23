@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+  web_tests:
+    build:
+      context: ./web
+      dockerfile: Dockerfile-test
+    env_file: ./web/.env
+    command: ["npm", "run", "test"]
