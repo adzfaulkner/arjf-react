@@ -2,8 +2,8 @@ sudo: required
 services:
   - docker
 
-install:
-  - docker-compose --build --force-recreate
+script:
+  - docker-compose up --build --force-recreate
 
 deploy:
   provider: elasticbeanstalk
