@@ -3,6 +3,7 @@ version: '3.3'
 services:
   web:
     build: ./web
+    env_file: ./web/.env
     ports:
       - '443:443'
       - '80:80'

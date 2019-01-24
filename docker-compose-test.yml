@@ -5,4 +5,4 @@ services:
     build:
       context: ./web
       dockerfile: Dockerfile-test
-    command: ["npm", "run", "test"]
+    command: ["npm", "run", "test", "--", "--coverage"]

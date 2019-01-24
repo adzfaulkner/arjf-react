@@ -1,20 +1,6 @@
 sudo: required
-
 services:
   - docker
 
 script:
-  - docker-compose up --build --force-recreate
-
-deploy:
-  provider: elasticbeanstalk
-  region: "eu-west-1"
-  app: "ARJF React"
-  env: "ArjfReact-env"
-  bucket_name: "elasticbeanstalk-eu-west-1-543174106112"
-  bucket_path: "ARJF React"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  - docker-compose -f ./docker-compose-test.yml up -d --build --force-recreate
