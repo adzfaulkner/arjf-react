@@ -6,6 +6,7 @@ COPY ./package.json /app/package.json
 RUN npm install --silent
 RUN npm install react-scripts@1.1.1 -g --silent
 COPY . /app
+
 RUN npm run build
 
 FROM nginx:1.15.2-alpine
