@@ -6,7 +6,7 @@ before_install:
   - docker-compose -f ./docker-compose-test.yml up --build --force-recreate
 
 install:
-  - docker-compose -f --build --force-recreate -d
+  - docker-compose --build --force-recreate -d
 
 deploy:
   provider: elasticbeanstalk
