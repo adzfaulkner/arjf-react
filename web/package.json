@@ -3,11 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://www.arjf.co.uk",
-  "proxy": {
-    "/wp/*": {
-      "target": "http://localhost"
-    }
-  },
   "dependencies": {
     "axios": "^0.18.0",
     "email-validator": "^2.0.4",
