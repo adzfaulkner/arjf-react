@@ -6,15 +6,5 @@ services:
 script:
   - docker-compose up --build --force-recreate
 
-deploy:
-  provider: elasticbeanstalk
-  region: "eu-west-1"
-  app: "ARJF React"
-  env: "ArjfReact-env"
-  bucket_name: "elasticbeanstalk-eu-west-1-543174106112"
-  bucket_path: "ARJF React"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+after_success:
+  - docker build -t adzfaulkner/arjf-react ./web

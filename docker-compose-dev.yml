@@ -1,16 +1,25 @@
 version: '3.3'
 
 services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile-dev
+    ports:
+    - '80:80'
+    links:
+    - php
+    - web
+
   web:
     build:
       context: ./web
       dockerfile: Dockerfile-dev
     env_file: ./web/.env
-    ports:
-      - '80:80'
-    links:
-      - php
     restart: always
+    volumes:
+    - ./web:/app
+    - /app/node_modules
 
   php:
     build: ./php

@@ -11,9 +11,7 @@ RUN npm run build
 
 FROM nginx:1.15.2-alpine
 RUN rm -rf /etc/nginx/conf.d
-COPY conf /etc/nginx
-RUN mv  /etc/nginx/conf.d/default-prod.conf /etc/nginx/conf.d/default.conf && \
-    rm /etc/nginx/conf.d/default-dev.conf
+COPY conf/default-prod.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /app
 COPY src/repositories/json/rss.xml /app/static
 EXPOSE 80
