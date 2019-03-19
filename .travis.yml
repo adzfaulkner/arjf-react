@@ -13,13 +13,13 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: eu-west-1
-  app: ARJF React
-  env: ArjfReact-env
-  bucket_name: elasticbeanstalk-eu-west-2-543174106112
-  bucket_path: arjf-react
+  region: "eu-west-1"
+  app: "ARJF React"
+  env: "ArjfReact-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-543174106112"
+  bucket_path: "ARJF React"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
-    secure: $AWS_SECRET_KEY
+    secure: "$AWS_SECRET_KEY"
