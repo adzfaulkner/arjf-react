@@ -10,3 +10,17 @@ after_success:
   - docker build -t adzfaulkner/arjf-react ./web
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push adzfaulkner/arjf-react
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "ARJF React"
+  env: "ArjfReact-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-543174106112"
+  bucket_path: "arjf-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+
