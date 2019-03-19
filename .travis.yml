@@ -17,7 +17,7 @@ deploy:
   app: ARJF React
   env: ArjfReact-env
   bucket_name: elasticbeanstalk-eu-west-2-543174106112
-  bucket_path: "arjf-react
+  bucket_path: arjf-react
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
