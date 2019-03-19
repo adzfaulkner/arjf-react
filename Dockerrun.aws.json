@@ -6,6 +6,7 @@
       "image": "adzfaulkner/arjf-react",
       "hostname": "web",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
