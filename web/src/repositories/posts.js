@@ -1,4 +1,4 @@
-import posts from './json/posts.json';
+import posts from '../assets/posts.json';
 import _ from 'lodash';
 import PostFactory from '../models/Post';
 

@@ -1,4 +1,4 @@
-import examples from './json/examples.json';
+import examples from '../assets/examples.json';
 
 export function getExamples() {
   return examples;
