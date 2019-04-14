@@ -32,5 +32,13 @@
   "devDependencies": {
     "react-test-renderer": "^16.6.0",
     "node-sass-chokidar": "^1.3.0"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "(.*)/posts.json": "<rootDir>/__mocks__/assets/posts.json",
+      "(.*)/examples.json": "<rootDir>/__mocks__/assets/examples.json",
+      "(.*)/categories.json": "<rootDir>/__mocks__/assets/categories.json"
+    }
   }
 }

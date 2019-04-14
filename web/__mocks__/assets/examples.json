@@ -1,0 +1,17 @@
+[
+  {
+    "url": "avanquest.com",
+    "img": "avanquest.gif",
+    "description": "\u003Cp\u003EAll in all, I spent 7 years developing this website for a former employer.\u003C\/p\u003E\r\n\u003Cp\u003EThe site is composed of 2 parts:\u003C\/p\u003E\r\n\u003Cul\u003E\r\n\u003Cli\u003ECatalogue\u003C\/li\u003E\r\n\u003Cli\u003EShop\u003C\/p\u003E\r\n\u003C\/ul\u003E\r\n\u003Cp\u003EMain brunt of my work was in the Catalogue as we integrated Joomla\u0027s data storage into it\u0027s front end without utilizing the CMS\u0027s front end capabilities. Before this, I was also involved in the integration in the company\u0027s previous CMS, which was Tridion.\u003C\/p\u003E\r\n\u003Cp\u003EI was also instrumental in the integration of serveral different payment methods into the Shop and also helped develop\/maintain the Shop\u0027s back office.\u003C\/p\u003E "
+  },
+  {
+    "url": "softcity.com",
+    "img": "softcity.gif",
+    "description": "\u003Cp\u003EI was employed to maintain\/develop the site which was handed down to me from a team of developers that were based in Montreal, Canada.\u003C\/p\u003E\u003Cp\u003EOnce upon a time, it had it\u0027s own e-commerce platform, but the decision was made to integrate this function with another cart also managed by that particular company.\u003C\/p\u003E\u003Cp\u003EThe site is built using Zend Framework 1, LAMP and Apache SOLR which is employed to manage searches.\u003C\/p\u003E"
+  },
+  {
+    "url": "scoreguru.co.uk",
+    "img": "scoreguru.gif",
+    "description": "\u003Cp\u003EMyself and a friend developed this as we felt that in the world of sports results prediction\u0027s games it was lacking a certain something. From past experience, these types of games were managed merely by macro enabled Excel spreadsheets and I thought this could be managed by a web application.\u003C\/p\u003E\u003Cp\u003ESo after previous versions, we developed this ScoreGuru. I took care of the backend\/javascript, and my partner looked after the HTML \u0026 CSS.\u003C\/p\u003E\u003Cp\u003EBackend is developed using Zend Framework 1 and LAMP.\u003C\/p\u003E\u003Cp\u003EThe site is designed responsive \u0026 also features a sister iPhone app which was installed only on my device which helped me manage the admin and my predictions.\u003C\/p\u003E"
+  }
+]

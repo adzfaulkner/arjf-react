@@ -1,0 +1,308 @@
+[
+  {
+    "id": 87,
+    "date": "2018-03-07T10:01:28",
+    "date_gmt": "2018-03-07T10:01:28",
+    "guid": {
+      "rendered": "http:\/\/www.arjf.co.uk\/blog\/?p=87"
+    },
+    "modified": "2018-03-07T10:03:19",
+    "modified_gmt": "2018-03-07T10:03:19",
+    "slug": "accessing-private-members-without-using-reflection",
+    "status": "publish",
+    "type": "post",
+    "link": "http:\/\/localhost\/wp\/accessing-private-members-without-using-reflection\/",
+    "title": {
+      "rendered": "Accessing private members without using reflection"
+    },
+    "content": {
+      "rendered": "<p>Really handy trick (especially whilst writing unit tests) to access private instance members:<\/p>\n<p><a href=\"https:\/\/ocramius.github.io\/blog\/accessing-private-php-class-members-without-reflection\/\">https:\/\/ocramius.github.io\/blog\/accessing-private-php-class-members-without-reflection\/<\/a><\/p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Really handy trick (especially whilst writing unit tests) to access private instance members: https:\/\/ocramius.github.io\/blog\/accessing-private-php-class-members-without-reflection\/<\/p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+      5
+    ],
+    "tags": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/87"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/types\/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/users\/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/comments?post=87"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/87\/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 89,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/87\/revisions\/89"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/media?parent=87"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/categories?post=87"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/tags?post=87"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https:\/\/api.w.org\/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 71,
+    "date": "2017-07-01T21:38:09",
+    "date_gmt": "2017-07-01T20:38:09",
+    "guid": {
+      "rendered": "http:\/\/www.arjf.co.uk\/blog\/?p=71"
+    },
+    "modified": "2017-07-01T21:38:09",
+    "modified_gmt": "2017-07-01T20:38:09",
+    "slug": "becoming-a-tdd-evangelist",
+    "status": "publish",
+    "type": "post",
+    "link": "http:\/\/localhost\/wp\/becoming-a-tdd-evangelist\/",
+    "title": {
+      "rendered": "Becoming a TDD evangelist"
+    },
+    "content": {
+      "rendered": "<p>Of late, I feel really uncomfortable not writing tests before I code. Previously, I have written tests after I have coded in the form of a specification and\/or functional tests but very rarely I have written tests before I code. As many of my previous roles, projects often came with hard deadlines which the stakeholders never appreciated the real benefit of writing your tests before you code. Since I have started contracting, I feel obliged to fulfill my professional responsibilities my employment status entails. We pay insurances etc to protect ourselves against perceived potential bad workmanship but we can go one better and create contracts in the form of a fully comprehensive test suites where applicable.<\/p>\n<p>I add the caveat applicable, as not all code can be easily unit tested. Take Drupal 7 for instance, you have to bootstrap the framework for writing functional\/acceptance tests or you have to do a lot of work to be able to mock dependencies that your tests become bloated. On the other hand, of late I&#8217;ve had the pleasure of working with Symfony 2\/3 and ES6 that allow me to practice test driven development. The defacto unit testing framework in the PHP world is PHPUnit and in the javascript world there are several (though I have only used qUnit). I generally find, if the framework\/library you are using promotes dependency injection, then TDD is definitely do-able.<\/p>\n<p>The other common excuse is the fore-mentioned length of time it takes. I recently attended PHP UK 17 in London and witnessed a talk where the speaker made the quote &#8220;testing is pre-emptive debugging&#8221;. I can not agree anymore. I have written some code with virtually no tests and then become embroiled in a dev-QA cycle that has taken many iterations before the code was released. This is a very expensive process which unit tests can help prevent. Furthermore the by-product of creating tests is that you fundamentally create documentation that other developers can go to rather than &#8220;asking around&#8221;. Not to mention it&#8217;s fun and very rewarding as you start challenging yourself (and even the requirements most of the time).<\/p>\n<p>Anyway enough about the benefits for now, let me describe how I&#8217;ve become a fan. In my first contracting role, the test pack that I found was mainly functional. There were fixtures that helped mocked data but all in all too many dependencies were not being mocked and it took far too long to run the test pack on both dev\/build environments that were built via CI. I instantly identified that this had to be improved. I am also a fan of layered architecture and hexagonal architecture as one of it&#8217;s benefits is it promotes testable code. I started creating the infrastructure services that was responsible for data lookups, API calls, logging, caching etc, then came the domain services that is responsible to applying business logic to arbitrary data and finally (if needed) the application services which act as a broker between the domain and infrastructure. This architecture enabled me to use dependency injection, mock dependencies and managed to create tests that tested code line by line at ease. Eventually I was able to reduce the <a href=\"http:\/\/opnsrce.github.io\/how-to-read-and-improve-the-c-r-a-p-index-of-your-code\" target=\"_blank\" rel=\"noopener noreferrer\">CRAP<\/a> index to under 10 per class and boast 100% code coverage.<\/p>\n<p>The role after next, TDD was preached but not practiced. The client was eager, but again even though they practiced AGILE software development, hard deadlines were all too common on many projects. However, every week Uncle Bob clean code was shown to us in form of a workshop. In a chapter, TDD was the topic and he described a bowling game task where he demonstrated TDD. He began simple, following TDD red\/green discipline until he produced code that satisfied the requirements and in doing so, gained significant code coverage. By doing this, he could refactor by creating something more elaborate knowing it was safe to as his test pack was his insurance. This literally blew my mind. After completing the set of videos, another TDD workshop was staged where the developers had to practice that was preached in a collaborative manner by pair programming with another developer. The task was to render numbers 1 to 100. Numbers that were:<\/p>\n<ul>\n<li>Divisible by 3 and 5, that number had to be substituted by &#8220;FizzBuzz&#8221;<\/li>\n<li>Number that you could divide by 3 = Fizz<\/li>\n<li>5 = Buzz<\/li>\n<\/ul>\n<p>We created a series of tests 1st that failed at first, then started writing production code using the red\/green technique until all of our tests passed. The code was not great but it gave us a platform to start refactoring. We decided to implement the chain of responsibility design pattern as we wanted to adopt a OOA solution as opposed to lots of IF statements. You could have used a factory but we wanted an integer not an object at the time.<\/p>\n<p>Since this, I was given a low priority project which was free of the more-mentioned time constraints which allowed me to create code that has 100% code coverage. The CRAP index is rather low as well which is a plus however we serious lack any functional\/acceptance tests. When you are dealing with graphical web interfaces acceptance tests are vital as they are visible and these are what you deliver to the end client. There are several devices\/browsers that you have to test against which require you to write end user tests if you want to integrate continuous integration\/deployment into your workflow. Otherwise you are at the whims of the testers when you can easily (with invested time) allow the QA to write the acceptance criteria in the form of a domain specific language such as Gherkin, a developer can take the Gherkin and write acceptance tests and simultaneously practice TDD. Once the tests pass, you commit the code to your version control system and you can initiate regular builds and your testers revert from bug hunters to simply checkers and spend more time writing the test scripts. To be successful a team must implement all forms tests. In my opinion, unit tests are the foundations, acceptance tests are the roof and walls. Finally the functional tests are the windows and doors in a house.<\/p>\n<p>Further reading:<\/p>\n<ul>\n<li><a href=\"http:\/\/www.getlaura.com\/testing-unit-vs-integration-vs-regression-vs-acceptance\/\" target=\"_blank\" rel=\"noopener noreferrer\">Unit, Functional, Regression vs Acceptance Tests<\/a><\/li>\n<li><a href=\"http:\/\/codeception.com\/docs\/01-Introduction\" target=\"_blank\" rel=\"noopener noreferrer\">Codeception&#8217;s take<\/a><\/li>\n<li><a href=\"http:\/\/docs.behat.org\/en\/v2.5\/guides\/1.gherkin.html\" target=\"_blank\" rel=\"noopener noreferrer\">Behat and Gherkin<\/a><\/li>\n<li><a href=\"http:\/\/blog.cleancoder.com\/uncle-bob\/2017\/05\/05\/TestDefinitions.html\" target=\"_blank\" rel=\"noopener noreferrer\">Uncle Bob&#8217;s introduction on tests<\/a><\/li>\n<li><a href=\"http:\/\/blog.cleancoder.com\/uncle-bob\/2014\/12\/17\/TheCyclesOfTDD.html\" target=\"_blank\" rel=\"noopener noreferrer\">How to practice TDD<\/a><\/li>\n<li><a href=\"http:\/\/blog.cleancoder.com\/uncle-bob\/2016\/06\/10\/MutationTesting.html\" target=\"_blank\" rel=\"noopener noreferrer\">Hambug testing<\/a><\/li>\n<li><a href=\"http:\/\/butunclebob.com\/ArticleS.UncleBob.TheBowlingGameKata\" target=\"_blank\" rel=\"noopener noreferrer\">TDD Bowling game<\/a><\/li>\n<li><a href=\"http:\/\/www.basistechnologies.com\/continuous-integration-unit-testing-for-SAP\" target=\"_blank\" rel=\"noopener noreferrer\">Unit tests and CI\/CD <\/a><\/li>\n<li><a href=\"http:\/\/opnsrce.github.io\/how-to-read-and-improve-the-c-r-a-p-index-of-your-code\" target=\"_blank\" rel=\"noopener noreferrer\">What is the C.R.A.P index<\/a><\/li>\n<li><a href=\"https:\/\/github.com\/adzfaulkner\/tdd-foobar\" target=\"_blank\" rel=\"noopener noreferrer\">TDD FooBar<\/a><\/li>\n<\/ul>\n<p>&nbsp;<\/p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Of late, I feel really uncomfortable not writing tests before I code. Previously, I have written tests after I have coded in the form of a specification and\/or functional tests but very rarely I have written tests before I code. As many of my previous roles, projects often came with hard deadlines which the stakeholders [&hellip;]<\/p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+      5
+    ],
+    "tags": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/71"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/types\/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/users\/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/comments?post=71"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 7,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/71\/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 84,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/71\/revisions\/84"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/media?parent=71"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/categories?post=71"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/tags?post=71"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https:\/\/api.w.org\/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 74,
+    "date": "2017-06-05T18:00:30",
+    "date_gmt": "2017-06-05T17:00:30",
+    "guid": {
+      "rendered": "http:\/\/www.arjf.co.uk\/blog\/?p=74"
+    },
+    "modified": "2018-09-02T10:19:01",
+    "modified_gmt": "2018-09-02T09:19:01",
+    "slug": "bash-history-tip",
+    "status": "publish",
+    "type": "post",
+    "link": "http:\/\/localhost\/wp\/bash-history-tip\/",
+    "title": {
+      "rendered": "Bash History Tip"
+    },
+    "content": {
+      "rendered": "<p>In a Linux environment, copy and paste the following lines into your ~\/.bash_rc or ~\/.bash_profile using a text editor:<\/p>\n<pre>if [[ -n \"$BASH_VERSION\" ]]; then\r\nbind '\"\\e[A\"':history-search-backward\r\nbind '\"\\e[B\"':history-search-forward\r\nfi\r\n<\/pre>\n<p>Save then fire:<\/p>\n<pre>source ~\/.bash_rc\r\n# or source ~\/.bash_profile\r\n<\/pre>\n<p>And you will be able to auto complete commands by cycling up\/down keys commands that you have run in the past.<\/p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>In a Linux environment, copy and paste the following lines into your ~\/.bash_rc or ~\/.bash_profile using a text editor: if [[ -n &#8220;$BASH_VERSION&#8221; ]]; then bind &#8216;&#8221;\\e[A&#8221;&#8216;:history-search-backward bind &#8216;&#8221;\\e[B&#8221;&#8216;:history-search-forward fi Save then fire: source ~\/.bash_rc # or source ~\/.bash_profile And you will be able to auto complete commands by cycling up\/down keys commands that you [&hellip;]<\/p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+      5
+    ],
+    "tags": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/74"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/types\/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/users\/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/comments?post=74"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/74\/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 76,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/posts\/74\/revisions\/76"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/media?parent=74"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/categories?post=74"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "http:\/\/localhost\/wp\/wp-json\/wp\/v2\/tags?post=74"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https:\/\/api.w.org\/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
