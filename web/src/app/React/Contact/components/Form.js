@@ -6,8 +6,13 @@ import _ from 'lodash';
 import { reduxForm, Field } from 'redux-form';
 import { validate as emailValidate } from 'email-validator';
 import { init, send } from 'emailjs-com';
+import config from '../../../../config/vars';
 
 class Form extends React.Component {
+  componentDidMount () {
+    init(config.REACT_APP_EMAIL_JS_USER_ID);
+  }
+
   renderFields = () => {
     return _.map(formFields, config => {
       let { name } = config;
@@ -15,13 +20,20 @@ class Form extends React.Component {
     });
   };
 
-  handleSubmit = async values => {
+  handleSubmit = values => {
     let { onSend, onSent } = this.props;
     let { email, subject, message } = values;
-    init(process.env.REACT_APP_EMAIL_JS_USER_ID);
+
     onSend();
-    await send(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, {"reply_to":email,"subject":subject,"text":message});
-    onSent();
+    send(
+      config.REACT_APP_EMAIL_JS_SERVICE_ID,
+      config.REACT_APP_EMAIL_JS_TEMPLATE_ID,
+      {"reply_to":email,"subject":subject,"text":message}
+    ).then(function(response) {
+      onSent();
+    }, function(error) {
+      onSent();
+    });
   }
 
   render() {
