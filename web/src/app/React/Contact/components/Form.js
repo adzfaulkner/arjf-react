@@ -9,10 +9,6 @@ import { init, send } from 'emailjs-com';
 import config from '../../../../config/vars';
 
 class Form extends React.Component {
-  componentDidMount () {
-    init(config.REACT_APP_EMAIL_JS_USER_ID);
-  }
-
   renderFields = () => {
     return _.map(formFields, config => {
       let { name } = config;
@@ -24,11 +20,17 @@ class Form extends React.Component {
     let { onSend, onSent } = this.props;
     let { email, subject, message } = values;
 
+    if (!config.REACT_APP_EMAIL_JS_SERVICE_ID || !config.REACT_APP_EMAIL_JS_TEMPLATE_ID || !config.REACT_APP_EMAIL_JS_USER_ID) {
+      console.log('email params not created');
+      return;
+    }
+
     onSend();
     send(
       config.REACT_APP_EMAIL_JS_SERVICE_ID,
       config.REACT_APP_EMAIL_JS_TEMPLATE_ID,
-      {"reply_to":email,"subject":subject,"text":message}
+      {"reply_to":email,"subject":subject,"text":message},
+      config.REACT_APP_EMAIL_JS_USER_ID
     ).then(function(response) {
       onSent();
     }, function(error) {
