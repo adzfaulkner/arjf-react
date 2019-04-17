@@ -13,6 +13,6 @@ FROM nginx:1.15.2-alpine
 RUN rm -rf /etc/nginx/conf.d
 COPY conf/default-prod.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /app
-COPY src/repositories/json/rss.xml /app/static
+COPY src/assets/rss.xml /app/static
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
