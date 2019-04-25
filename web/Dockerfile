@@ -3,11 +3,11 @@ RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY ./package.json /app/package.json
-RUN npm install --silent
-RUN npm install react-scripts@1.1.1 -g --silent
+RUN npm install --silent && \
+    npm install react-scripts@1.1.1 -g --silent
 COPY . /app
-RUN npm run test -- --coverage
-RUN npm run build
+RUN npm run test -- --coverage && /
+    npm run build
 
 FROM nginx:1.15.2-alpine
 RUN rm -rf /etc/nginx/conf.d
