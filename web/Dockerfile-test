@@ -4,6 +4,5 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY ./package.json /app/package.json
 RUN npm install --silent  --save-dev && \
-    npm install react-scripts@1.1.1 -g --silent && \
-    ls node_modules/
+    npm install react-scripts@1.1.1 -g --silent
 COPY . /app
