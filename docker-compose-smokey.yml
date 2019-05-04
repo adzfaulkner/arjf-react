@@ -1,0 +1,8 @@
+version: '3.3'
+
+services:
+  smokey:
+    image: bluehoodie/smoke
+    command: -f /test/smoke_test.json -u http://www.arjf.co.uk -t 5
+    volumes:
+      - .:/test

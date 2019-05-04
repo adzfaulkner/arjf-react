@@ -1,0 +1,40 @@
+{
+  "contracts": [
+    {
+      "name": "home page",
+      "path": "/",
+      "method": "GET",
+      "http_code_is": 301
+    },
+    {
+      "name": "about",
+      "path": "/about",
+      "method": "GET",
+      "http_code_is": 301
+    },
+    {
+      "name": "examples",
+      "path": "/examples",
+      "method": "GET",
+      "http_code_is": 301
+    },
+    {
+      "name": "contact",
+      "path": "/contact",
+      "method": "GET",
+      "http_code_is": 301
+    },
+    {
+      "name": "blog",
+      "path": "/blog",
+      "method": "GET",
+      "http_code_is": 301
+    },
+    {
+      "name": "post",
+      "path": "/post/accessing-private-members-without-using-reflection",
+      "method": "GET",
+      "http_code_is": 301
+    }
+  ]
+}
