@@ -6,6 +6,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Loading from '../Loading';
 import PropTypes from 'prop-types';
+import DocumentTitle from 'react-document-title';
 
 const renderHTML = rawHTML => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
@@ -18,8 +19,6 @@ class Container extends React.Component {
   }
 
   componentDidMount() {
-    document.title = "ARJF Blog";
-
     let { match: { params } } = this.props;
     this.renderPosts(params);
   }
@@ -53,12 +52,14 @@ class Container extends React.Component {
     let { posts, archives, loading } = this.props;
 
     return (
-      <div id="main">
-        <Loading loading={loading} />
-        {this.renderSamples(posts)}
-        <a class="rss" href="/static/rss.xml"></a>
-        {loading === false && <Sidebar archives={archives} />}
-      </div>
+      <DocumentTitle title="ARJF Blog">
+        <div id="main">
+          <Loading loading={loading} />
+          {this.renderSamples(posts)}
+          <a className="rss" href="/static/rss.xml"></a>
+          {loading === false && <Sidebar archives={archives} />}
+        </div>
+      </DocumentTitle>
     );
   }
 }

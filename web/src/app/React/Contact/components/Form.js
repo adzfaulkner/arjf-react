@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import formFields from '../fieldsConfig';
 import _ from 'lodash';
 import { reduxForm } from 'redux-form';
 import { validate as emailValidate } from 'email-validator';
 import { send } from 'emailjs-com';
 import getEnv from '../../../../config/env';
+import PropTypes from 'prop-types'
 
 class Form extends React.Component {
   handleSubmit = async values => {
@@ -31,10 +31,18 @@ class Form extends React.Component {
   }
 }
 
-function validate(values) {
+Form.propTypes = {
+  config: PropTypes.array.isRequired,
+  onSend: PropTypes.func.isRequired,
+  onSent: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  renderForm: PropTypes.func.isRequired,
+};
+
+function validate(values, { config }) {
   const errors = {};
 
-  _.each(formFields, ({ name, noValueError }) => {
+  _.each(config, ({ name, noValueError }) => {
     if (!values[name]) {
       errors[name] = noValueError;
     }

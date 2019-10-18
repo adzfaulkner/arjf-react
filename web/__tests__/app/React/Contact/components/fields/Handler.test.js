@@ -1,7 +1,6 @@
 import React from 'react';
 import Handler from '../../../../../../src/app/React/Contact/components/fields/Handler';
 import renderer from 'react-test-renderer';
-import sinon from 'sinon';
 
 test('Default should be rendered if prop type input is provided', () => {
   const component = renderer.create(<Handler type={`input`} inputKey={`test`} input={{}}/>);

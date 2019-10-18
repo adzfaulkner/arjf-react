@@ -3,10 +3,11 @@ import ContactForm from './components/Form';
 import connect from 'react-redux/es/connect/connect';
 import * as actions from '../../Redux/actions';
 import FormModal from './components/FormModal';
-import formFields from './fieldsConfig';
-import _ from 'lodash'
-import { Field } from 'redux-form'
-import Handler from './components/fields/Handler'
+import _ from 'lodash';
+import { Field } from 'redux-form';
+import Handler from './components/fields/Handler';
+import DocumentTitle from 'react-document-title';
+import formConfig from '../../../config/contactForm';
 
 class Container extends React.Component {
   state = {
@@ -14,12 +15,8 @@ class Container extends React.Component {
     sent: false
   };
 
-  componentDidMount(){
-    document.title = "Contact ARJF"
-  }
-
   renderFields = () => {
-    return _.map(formFields, config => {
+    return _.map(formConfig, config => {
       let { name } = config;
       return <Field
         key={name}
@@ -66,23 +63,26 @@ class Container extends React.Component {
     }
 
     return (
-      <div className="jumbotron">
-        <h1>Contact Me</h1>
-        <div className="well">
-          <p>I only accept communications via email for the time being. So please, by all means complete the following
-            form and I will endeavour to respond ASAP.</p>
+      <DocumentTitle title="Contact ARJF">
+        <div className="jumbotron">
+          <h1>Contact Me</h1>
+          <div className="well">
+            <p>I only accept communications via email for the time being. So please, by all means complete the following
+              form and I will endeavour to respond ASAP.</p>
+          </div>
+          <ContactForm
+            config={formConfig}
+            onSend={() => modalShow(() => <FormModal/>)}
+            onSent={() => {modalHide(); this.setState({ sending: false, sent: true })}}
+            renderForm={handleSubmit => {
+              return <form onSubmit={handleSubmit} className="well form-horizontal" >
+                {this.renderFields()}
+                <button type="submit" className="btn btn-primary pull-right">Submit</button>
+              </form>;
+            }}
+          />
         </div>
-        <ContactForm
-          onSend={() => modalShow(() => <FormModal/>)}
-          onSent={() => {modalHide(); this.setState({ sending: false, sent: true })}}
-          renderForm={handleSubmit => {
-            return <form onSubmit={handleSubmit} className="well form-horizontal" >
-              {this.renderFields()}
-              <button type="submit" className="btn btn-primary pull-right">Submit</button>
-            </form>;
-          }}
-        />
-      </div>
+      </DocumentTitle>
     );
   }
 }

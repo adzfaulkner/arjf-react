@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  web_tests:
+  web_test:
     build:
       context: ./web
       dockerfile: Dockerfile-test

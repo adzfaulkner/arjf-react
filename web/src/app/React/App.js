@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../Redux/actions';
 import Header from './Layout/Header';
-import NavBar from './Layout/NavBar';
+import NavXs from './Layout/NavXs';
 import Footer from './Layout/Footer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AboutContainer from './About/Container';
@@ -11,6 +11,7 @@ import ContactContainer from './Contact/Container';
 import BlogContainer from './Blog/Container';
 import PostContainer from './Post/Container';
 import HomeContainer from './Home/Container';
+import navConfig from '../../config/nav';
 
 // The parent component renders the Header component and component(s) in the
 // route the user navigates to.
@@ -19,9 +20,9 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <NavBar/>
-          <Header />
-            <div>
+          <NavXs config={navConfig} />
+          <Header navConfig={navConfig} />
+            <React.Fragment>
               <Route path="/about" exact component={AboutContainer} />
               <Route path="/examples" exact component={ExamplesContainer} />
               <Route path="/contact" exact component={ContactContainer} />
@@ -30,7 +31,7 @@ class App extends Component {
               <Route path="/blog" exact component={BlogContainer} />
               <Route path="/post/:slug" exact component={PostContainer} />
               <Route path="/" exact component={HomeContainer} />
-            </div>
+            </React.Fragment>
           <Footer/>
         </div>
       </Router>

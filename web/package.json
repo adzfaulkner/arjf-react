@@ -5,18 +5,22 @@
   "homepage": "https://www.arjf.co.uk",
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap-sass": "^3.4.1",
+    "bootswatch": "^3.4.1",
     "email-validator": "^2.0.4",
     "emailjs-com": "^2.3.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "moment": "^2.22.2",
+    "node-sass": "^4.12.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
+    "react-document-title": "^2.0.3",
     "react-dom": "^16.4.1",
     "react-loader": "^2.4.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^3.1.1",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
     "redux-saga": "^0.16.0",
@@ -30,9 +34,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "mock-env": "^0.2.0",
     "node-sass-chokidar": "^1.3.0",
-    "react-test-renderer": "^16.6.0",
+    "react-test-renderer": "^16.8.6",
     "sinon": "^7.3.2"
   },
   "jest": {
@@ -41,6 +47,23 @@
       "(.*)/posts.json": "<rootDir>/__mocks__/assets/posts.json",
       "(.*)/examples.json": "<rootDir>/__mocks__/assets/examples.json",
       "(.*)/categories.json": "<rootDir>/__mocks__/assets/categories.json"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/setupTests.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/setupTests.js"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -1,4 +1,4 @@
-FROM node:9.6.1
+FROM node:12.4.0-alpine
 RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
