@@ -48,7 +48,7 @@
       "(.*)/examples.json": "<rootDir>/__mocks__/assets/examples.json",
       "(.*)/categories.json": "<rootDir>/__mocks__/assets/categories.json"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/setupTests.js",
+    "setupFilesAfterEnv": ["<rootDir>/__tests__/setupTests.js"],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/setupTests.js"
