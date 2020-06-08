@@ -15,7 +15,10 @@ services:
     build:
       context: ./web
       dockerfile: Dockerfile-dev
+      args:
+        react_scripts_version: 3.4.1
     env_file: ./web/.env
+    stdin_open: true
     restart: always
     volumes:
     - ./web:/app

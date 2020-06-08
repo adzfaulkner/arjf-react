@@ -5,6 +5,8 @@ services:
     build:
       context: ./web
       dockerfile: Dockerfile
+      args:
+        react_scripts_version: 3.4.1
     env_file: ./web/.env
     ports:
       - '80:80'
