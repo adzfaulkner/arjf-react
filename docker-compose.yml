@@ -8,5 +8,6 @@ services:
       args:
         react_scripts_version: 3.4.1
     env_file: ./web/.env
+    restart: true
     ports:
-      - '80:80'
+      - '81:80'
