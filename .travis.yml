@@ -1,24 +1,19 @@
+language: bash
+
 sudo: required
 
 services:
   - docker
 
+env:
+  - DOCKER_COMPOSE_VERSION: 1.25.5
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose --version
+
 script:
-  - docker build -t adzfaulkner/arjf-react ./web
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push adzfaulkner/arjf-react
-
-deploy:
-  provider: elasticbeanstalk
-  region: "eu-west-2"
-  app: "Arjf"
-  env: "Arjf-env"
-  bucket_name: "elasticbeanstalk-eu-west-2-543174106112"
-  bucket_path: "Arjf"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-
-after_deploy:
-  - docker-compose -f docker-compose-smokey.yml up
+  - docker-compose -f ./docker-compose-test.yml up --abort-on-container-exit
