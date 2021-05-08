@@ -9,7 +9,7 @@
     "bootswatch": "^3.4.1",
     "email-validator": "^2.0.4",
     "emailjs-com": "^2.3.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
