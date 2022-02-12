@@ -1,13 +1,23 @@
-version: '3.3'
-
+version: '3.9'
 services:
-  web:
+  test:
     build:
       context: ./web
       dockerfile: Dockerfile
       args:
-        react_scripts_version: 3.4.1
-    env_file: ./web/.env
-    restart: "true"
-    ports:
-      - '81:80'
+        react_scripts_version: 5.0.0
+    command: ["npm", "run", "test", "--", "--coverage"]
+  builds3:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      args:
+        react_scripts_version: 5.0.0
+    volumes:
+      - ./web:/app
+    command: ["npm", "run", "build"]
+  smokey:
+    image: bluehoodie/smoke
+    command: -f /test/smoke_test.json -u http://www.arjf.co.uk -t 5
+    volumes:
+      - .:/test
