@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Tests
+      - name: Build docker image
         run: make build-image
+      - name: Run Tests
         run: make run-tests
