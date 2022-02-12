@@ -6,7 +6,7 @@ services:
   build-app:
     image: ${IMAGE}
     volumes:
-      - ./web:/app
+      - ./web/build:/app/build:rw
       - /app/node_modules
     command: ["npm", "run", "build"]
   smokey:
