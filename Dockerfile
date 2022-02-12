@@ -1,6 +1,6 @@
 FROM node:17-stretch
 ARG react_scripts_version
-RUN mkdir /app
+RUN mkdir -p /app/build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY ./web/package.json /app
