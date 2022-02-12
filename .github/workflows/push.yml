@@ -6,6 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Tests
-        run:
-          - make build-image
-          - make run-tests
+        run: make build-image
+        run: make run-tests
