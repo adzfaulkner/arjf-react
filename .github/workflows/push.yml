@@ -11,5 +11,5 @@ jobs:
         run: make run-tests
       - name: Build app
         run: |
-          mkdir build
+          mkdir web/build
           make build-app
