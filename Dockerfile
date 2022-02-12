@@ -7,5 +7,5 @@ COPY ./web/package.json /app
 RUN npm install --silent  --save-dev && \
     npm install react-scripts@$react_scripts_version -g --silent
 COPY ./web /app
-RUN chown -R node: /app
-USER node
+RUN chown -R root: /app
+USER root
