@@ -9,3 +9,5 @@ jobs:
         run: make build-image
       - name: Run Tests
         run: make run-tests
+      - name: Build app
+        run: make build-app
