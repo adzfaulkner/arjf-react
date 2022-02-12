@@ -4,7 +4,7 @@ function importAll(r) {
   let images = {};
 
   _.forEach(r.keys(), item => {
-    images[item.replace('./', '')] = r(item);
+    images[item.replace('./', '')] = r(item).default;
   });
 
   return images;

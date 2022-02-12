@@ -5,7 +5,6 @@ import { getImage } from '../../../utils/image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Modal from './components/Modal';
-import DocumentTitle from 'react-document-title';
 
 const ExamplesContainer = styled.div`
   margin-top:15px;
