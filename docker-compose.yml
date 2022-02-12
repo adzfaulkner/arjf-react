@@ -1,20 +1,13 @@
 version: '3.9'
 services:
-  test:
-    build:
-      context: ./web
-      dockerfile: Dockerfile
-      args:
-        react_scripts_version: 5.0.0
+  tests:
+    image: ${IMAGE}
     command: ["npm", "run", "test", "--", "--coverage"]
-  builds3:
-    build:
-      context: ./web
-      dockerfile: Dockerfile
-      args:
-        react_scripts_version: 5.0.0
+  build-app:
+    image: ${IMAGE}
     volumes:
       - ./web:/app
+      - /app/node_modules
     command: ["npm", "run", "build"]
   smokey:
     image: bluehoodie/smoke

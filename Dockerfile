@@ -3,7 +3,8 @@ ARG react_scripts_version
 RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
-COPY ./package.json /app/package.json
+COPY ./web/package.json /app
 RUN npm install --silent  --save-dev && \
     npm install react-scripts@$react_scripts_version -g --silent
-COPY . /app
+COPY ./web /app
+RUN ls -lah /app

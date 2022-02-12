@@ -6,4 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Tests
-        run: docker-compose run test
+        run:
+          - make build-image
+          - make run-tests
