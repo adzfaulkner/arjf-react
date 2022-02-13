@@ -3,8 +3,7 @@ import Modal from '../Modal';
 
 const Footer = () => (
   <div className="footer">
-    <p>&copy; ARJF Web Developer 2018</p>
-    <a href="https://itunes.apple.com/us/app/arjf/id1039701973?mt=8" className="dlAppstore" target="_blank" rel="noopener noreferrer" />
+    <p>&copy; ARJF Web Developer {new Date().getFullYear()}</p>
     <a href="https://github.com/adzfaulkner" className="githubRepo" target="_blank" rel="noopener noreferrer" />
     <Modal/>
   </div>
