@@ -4,7 +4,7 @@ function importAll(r) {
   let images = {};
 
   _.forEach(r.keys(), item => {
-    images[item.replace('./', '')] = r(item).default;
+    images[item.replace('./', '')] = r(item);
   });
 
   return images;
@@ -15,6 +15,7 @@ let images = {};
 export function getImage(location) {
   if (Object.keys(images).length < 1) {
     images = importAll(require.context('../images/', true));
+    console.log('images are', images);
   }
   return images[location];
 }
